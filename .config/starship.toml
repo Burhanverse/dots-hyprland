@@ -1,100 +1,170 @@
-# Don't print a new line at the start of the prompt
-add_newline = false
-# Pipes ╰─ ╭─
-# Powerline symbols                                     
-# Wedges 🭧🭒 🭣🭧🭓
-# Random noise 🬖🬥🬔🬗
-# Cool stuff 󰜥   
-
-# format = """
-# $cmd_duration$username$hostname $directory $git_branch
-# $character
-# """
 format = """
-$cmd_duration 󰜥 $directory $git_branch
-$character"""
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$c\
+$elixir\
+$elm\
+$golang\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$nim\
+$rust\
+$scala\
+$conda\
+$python\
+$time\n  \
+[󱞪](fg:purple) \
+"""
 
-# Replace the "❯" symbol in the prompt with "➜"
-[character]                            # The name of the module we are configuring is "character"
-success_symbol = "[   ](bold fg:blue)"
-error_symbol = "[   ](bold fg:red)"
+palette = "cool-light"
 
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
-
-[git_branch]
-style = "bg: cyan"
-symbol = "󰘬"
-truncation_length = 12
-truncation_symbol = ""
-format = "󰜥 [](bold fg:cyan)[$symbol $branch(:$remote_branch)](fg:black bg:cyan)[ ](bold fg:cyan)"
-
-[git_commit]
-commit_hash_length = 4
-tag_symbol = " "
-
-[git_state]
-format = '[\($state( $progress_current of $progress_total)\)]($style) '
-cherry_pick = "[🍒 PICKING](bold red)"
-
-[git_status]
-conflicted = " 🏳 "
-ahead = " 🏎💨 "
-behind = " 😰 "
-diverged = " 😵 "
-untracked = " 🤷 ‍"
-stashed = " 📦 "
-modified = " 📝 "
-staged = '[++\($count\)](green)'
-renamed = " ✍️ "
-deleted = " 🗑 "
-
-[hostname]
-ssh_only = false
-format =  "[•$hostname](bg:cyan bold fg:black)[](bold fg:cyan)"
-trim_at = ".companyname.com"
-disabled = false
-
-[line_break]
-disabled = false
-
-[memory_usage]
-disabled = true
-threshold = -1
-symbol = " "
-style = "bold dimmed green"
-
-[time]
-disabled = true
-format = '🕙[\[ $time \]]($style) '
-time_format = "%T"
-
-[username]
-style_user = "bold bg:cyan fg:black"
-style_root = "red bold"
-format = "[](bold fg:cyan)[$user]($style)"
-disabled = false
-show_always = true
+[palettes.cool-light]
+overlay = '#224931'
+red = '#6febab'
+yellow = '#c5f677'
+flamingo = '#d3ebba'
+green = '#44ffb4'
+blue = '#24EAF7'
+purple = '#d2ff8f'
 
 [directory]
-home_symbol = "  "
-read_only = "  "
-style = "bg:green fg:black"
-truncation_length = 6
-truncation_symbol = " ••/"
-format = '[](bold fg:green)[󰉋 $path]($style)[](bold fg:green)'
-
+format = "[](fg:overlay)[ $path ]($style)[](fg:overlay) "
+style = "bg:overlay fg:green"
+truncation_length = 3
+truncation_symbol = "…/"
 
 [directory.substitutions]
-"Desktop" = "  "
-"Documents" = "  "
-"Downloads" = "  "
-"Music" = " 󰎈 "
-"Pictures" = "  "
-"Videos" = "  "
-"GitHub" = " 󰊤 "
+Documents = "󰈙"
+Downloads = " "
+Music = " "
+Pictures = " "
 
-[cmd_duration]
-min_time = 0
-format = '[](bold fg:yellow)[󰪢 $duration](bold bg:yellow fg:black)[](bold fg:yellow)'
+[fill]
+style = "fg:overlay"
+symbol = " "
+
+[git_branch]
+format = "[](fg:overlay)[ $symbol $branch ]($style)[](fg:overlay) "
+style = "bg:overlay fg:blue"
+symbol = ""
+
+[git_status]
+disabled = false
+style = "bg:overlay fg:red"
+format = '[](fg:overlay)([$all_status$ahead_behind]($style))[](fg:overlay) '
+up_to_date = '[ ✓ ](bg:overlay fg:purple)'
+untracked = '[?\($count\)](bg:overlay fg:yellow)'
+stashed = '[\$](bg:overlay fg:purple)'
+modified = '[!\($count\)](bg:overlay fg:yellow)'
+renamed = '[»\($count\)](bg:overlay fg:purple)'
+deleted = '[✘\($count\)](style)'
+staged = '[++\($count\)](bg:overlay fg:yellow)'
+ahead = '[⇡\(${count}\)](bg:overlay fg:blue)'
+diverged = '⇕[\[](bg:overlay fg:purple)[⇡\(${ahead_count}\)](bg:overlay fg:blue)[⇣\(${behind_count}\)](bg:overlay fg:flamingo)[\]](bg:overlay fg:purple)'
+behind = '[⇣\(${count}\)](bg:overlay fg:flamingo)'
+
+[time]
+disabled = false
+format = "[](fg:overlay)[ $time 󰴈 ]($style)[ ](fg:overlay)"
+style = "bg:overlay fg:flamingo"
+time_format = "%I:%M%P"
+use_12hr = true
+
+[username]
+disabled = false
+format = "[](fg:overlay)[ 󰧱 $user ]($style)[](fg:overlay) "
+show_always = true
+style_root = "bg:overlay fg:purple"
+style_user = "bg:overlay fg:purple"
+
+[hostname]
+disabled = false
+format = "[](fg:overlay)[  $hostname ]($style)[](fg:overlay) "
+style = "bg:overlay fg:flamingo"
+ssh_only = false
+
+# Languages
+
+[c]
+style = "bg:overlay fg:green"
+format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) "
+disabled = false
+symbol = " "
+
+[elixir]
+style = "bg:overlay fg:green"
+format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) "
+disabled = false
+symbol = " "
+
+[elm]
+style = "bg:overlay fg:green"
+format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) "
+disabled = false
+symbol = " "
+
+[golang]
+style = "bg:overlay fg:green"
+format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) "
+disabled = false
+symbol = " "
+
+[haskell]
+style = "bg:overlay fg:green"
+format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) "
+disabled = false
+symbol = " "
+
+[java]
+style = "bg:overlay fg:green"
+format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) "
+disabled = false
+symbol = " "
+
+[julia]
+style = "bg:overlay fg:green"
+format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) "
+disabled = false
+symbol = " "
+
+[nodejs]
+style = "bg:overlay fg:green"
+format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) "
+disabled = false
+symbol = "󰎙 "
+
+[nim]
+style = "bg:overlay fg:green"
+format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) "
+disabled = false
+symbol = "󰆥 "
+
+[rust]
+style = "bg:overlay fg:green"
+format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) "
+disabled = false
+symbol = ""
+
+[scala]
+style = "bg:overlay fg:green"
+format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) "
+disabled = false
+symbol = " "
+
+[python]
+style = "bg:overlay fg:green"
+format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) "
+disabled = false
+symbol = ' '
+
+[conda]
+style = "bg:overlay fg:green"
+format = "[](fg:overlay)[$symbol$environment]($style)[](fg:overlay) "
+disabled = false
+symbol = '🅒 '
