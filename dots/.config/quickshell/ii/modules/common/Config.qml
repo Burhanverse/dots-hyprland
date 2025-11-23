@@ -110,6 +110,15 @@ Singleton {
             property JsonObject appearance: JsonObject {
                 property bool extraBackgroundTint: true
                 property int fakeScreenRounding: 2 // 0: None | 1: Always | 2: When not fullscreen
+                property JsonObject fonts: JsonObject {
+                    property string main: "Google Sans Flex"
+                    property string numbers: "Google Sans Flex"
+                    property string title: "Google Sans Flex"
+                    property string iconNerd: "JetBrains Mono NF"
+                    property string monospace: "JetBrains Mono NF"
+                    property string reading: "Readex Pro"
+                    property string expressive: "Space Grotesk"
+                }
                 property JsonObject transparency: JsonObject {
                     property bool enable: false
                     property bool automatic: true
@@ -575,7 +584,10 @@ Singleton {
                 // Animations on Windoes are kinda janky. Setting the following to
                 // false will make (some) stuff also be like that for accuracy. 
                 // Example: the right-click menu of the Start button
-                property bool smootherAnimations: true
+                property JsonObject tweaks: JsonObject {
+                    property bool smootherMenuAnimations: true
+                    property bool switchHandlePositionFix: true
+                }
                 property JsonObject bar: JsonObject {
                     property bool bottom: true
                     property bool leftAlignApps: false

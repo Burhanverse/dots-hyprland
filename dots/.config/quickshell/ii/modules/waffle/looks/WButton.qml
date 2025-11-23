@@ -19,6 +19,7 @@ Button {
     property color colForegroundToggled: Looks.colors.accentFg
     property alias backgroundOpacity: backgroundRect.opacity
     property color color: {
+        if (!root.enabled) return colBackground;
         if (root.checked) {
             if (root.down) {
                 return root.colBackgroundToggledActive;
@@ -72,7 +73,7 @@ Button {
     property var altAction: () => {}
     property var middleClickAction: () => {}
 
-    property real inset: 2
+    property real inset: 0
     topInset: inset
     bottomInset: inset
     leftInset: inset
@@ -85,8 +86,8 @@ Button {
     property alias border: backgroundRect.border
     horizontalPadding: 10
     verticalPadding: 6
-    implicitHeight: contentItem.implicitHeight + verticalPadding * 2
-    implicitWidth: contentItem.implicitWidth + horizontalPadding * 2
+    implicitHeight: contentItem.implicitHeight + verticalPadding * 2 + topInset + bottomInset
+    implicitWidth: contentItem.implicitWidth + horizontalPadding * 2 + leftInset + rightInset
 
     background: Rectangle {
         id: backgroundRect
@@ -128,7 +129,7 @@ Button {
             FluentIcon {
                 id: buttonIcon
                 monochrome: true
-                implicitSize: 16
+                implicitSize: 18
                 Layout.leftMargin: root.iconLeftMargin
                 Layout.fillWidth: false
                 Layout.alignment: Qt.AlignVCenter
