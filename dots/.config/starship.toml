@@ -19,14 +19,14 @@ $scala\
 $conda\
 $python\
 $time\n  \
-[󱞪](fg:240) \
+[󱞪](fg:243) \
 """
 
-# Uses indexed terminal colors, following upstream starship coloring behavior.
+# Color scheme ported from the original upstream starship config (og_starship.toml).
 
 [directory]
-format = "[](fg:252)[ $path ]($style)[](fg:252) "
-style = "bg:252 fg:233 "
+format = "[](fg:255)[ $path ]($style)[](fg:255) "
+style = "bg:255 fg:240"
 truncation_length = 3
 truncation_symbol = "…/"
 
@@ -37,33 +37,33 @@ Music = " "
 Pictures = " "
 
 [fill]
-style = "fg:252"
+style = "fg:245"
 symbol = " "
 
 [git_branch]
 format = "[](fg:252)[ $symbol $branch ]($style)[](fg:252) "
-style = "bg:252 fg:240"
+style = "bg:252 fg:235"
 symbol = ""
 
 [git_status]
 disabled = false
-style = "bg:252 fg:234"
+style = "bg:252 fg:235"
 format = '[](fg:252)([$all_status$ahead_behind]($style))[](fg:252) '
-up_to_date = '[ ✓ ](bg:252 fg:240)'
+up_to_date = '[ ✓ ](bg:252 fg:235)'
 untracked = '[?\($count\)](bg:252 fg:243)'
-stashed = '[\$](bg:252 fg:240)'
+stashed = '[\$](bg:252 fg:235)'
 modified = '[!\($count\)](bg:252 fg:243)'
-renamed = '[»\($count\)](bg:252 fg:240)'
-deleted = '[✘\($count\)](style)'
+renamed = '[»\($count\)](bg:252 fg:235)'
+deleted = '[✘\($count\)](bg:252 fg:240)'
 staged = '[++\($count\)](bg:252 fg:243)'
-ahead = '[⇡\(${count}\)](bg:252 fg:240)'
-diverged = '⇕[\[](bg:252 fg:240)[⇡\(${ahead_count}\)](bg:252 fg:240)[⇣\(${behind_count}\)](bg:252 fg:236 )[\]](bg:252 fg:240)'
-behind = '[⇣\(${count}\)](bg:252 fg:236 )'
+ahead = '[⇡\(${count}\)](bg:252 fg:235)'
+diverged = '⇕[\[](bg:252 fg:235)[⇡\(${ahead_count}\)](bg:252 fg:235)[⇣\(${behind_count}\)](bg:252 fg:235)[\]](bg:252 fg:235)'
+behind = '[⇣\(${count}\)](bg:252 fg:235)'
 
 [time]
 disabled = false
-format = "[](fg:252)[ $time 󰴈 ]($style)[ ](fg:252)"
-style = "bg:252 fg:236 "
+format = "[](fg:252)[ $time 󰴈 ]($style)[](fg:252)"
+style = "bold bg:252 fg:235"
 time_format = "%I:%M%P"
 use_12hr = true
 
@@ -71,91 +71,91 @@ use_12hr = true
 disabled = false
 format = "[](fg:252)[ 󰧱 $user ]($style)[](fg:252) "
 show_always = true
-style_root = "bg:252 fg:240"
-style_user = "bg:252 fg:240"
+style_root = "bold bg:252 fg:235"
+style_user = "bold bg:252 fg:235"
 
 [hostname]
 disabled = false
 format = "[](fg:252)[  $hostname ]($style)[](fg:252) "
-style = "bg:252 fg:236 "
+style = "bold bg:252 fg:235"
 ssh_only = false
 
 # Languages
 
 [c]
-style = "bg:252 fg:233 "
+style = "bg:252 fg:235"
 format = "[](fg:252)[$symbol$version]($style)[](fg:252) "
 disabled = false
 symbol = " "
 
 [elixir]
-style = "bg:252 fg:233 "
+style = "bg:252 fg:235"
 format = "[](fg:252)[$symbol$version]($style)[](fg:252) "
 disabled = false
 symbol = " "
 
 [elm]
-style = "bg:252 fg:233 "
+style = "bg:252 fg:235"
 format = "[](fg:252)[$symbol$version]($style)[](fg:252) "
 disabled = false
 symbol = " "
 
 [golang]
-style = "bg:252 fg:233 "
+style = "bg:252 fg:235"
 format = "[](fg:252)[$symbol$version]($style)[](fg:252) "
 disabled = false
 symbol = " "
 
 [haskell]
-style = "bg:252 fg:233 "
+style = "bg:252 fg:235"
 format = "[](fg:252)[$symbol$version]($style)[](fg:252) "
 disabled = false
 symbol = " "
 
 [java]
-style = "bg:252 fg:233 "
+style = "bg:252 fg:235"
 format = "[](fg:252)[$symbol$version]($style)[](fg:252) "
 disabled = false
 symbol = " "
 
 [julia]
-style = "bg:252 fg:233 "
+style = "bg:252 fg:235"
 format = "[](fg:252)[$symbol$version]($style)[](fg:252) "
 disabled = false
 symbol = " "
 
 [nodejs]
-style = "bg:252 fg:233 "
+style = "bg:252 fg:235"
 format = "[](fg:252)[$symbol$version]($style)[](fg:252) "
 disabled = false
 symbol = "󰎙 "
 
 [nim]
-style = "bg:252 fg:233 "
+style = "bg:252 fg:235"
 format = "[](fg:252)[$symbol$version]($style)[](fg:252) "
 disabled = false
 symbol = "󰆥 "
 
 [rust]
-style = "bg:252 fg:233 "
+style = "bg:252 fg:235"
 format = "[](fg:252)[$symbol$version]($style)[](fg:252) "
 disabled = false
 symbol = ""
 
 [scala]
-style = "bg:252 fg:233 "
+style = "bg:252 fg:235"
 format = "[](fg:252)[$symbol$version]($style)[](fg:252) "
 disabled = false
 symbol = " "
 
 [python]
-style = "bg:252 fg:233 "
+style = "bg:252 fg:235"
 format = "[](fg:252)[$symbol$version]($style)[](fg:252) "
 disabled = false
 symbol = ' '
 
 [conda]
-style = "bg:252 fg:233 "
+style = "bg:252 fg:235"
 format = "[](fg:252)[$symbol$environment]($style)[](fg:252) "
 disabled = false
 symbol = '🅒 '
