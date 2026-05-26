@@ -51,7 +51,7 @@ hl.config({
         gaps_out = 5,
         gaps_workspaces = 50,
 
-        border_size = 1,
+        border_size = 2,
 
         col = {
             active_border = "rgba(0DB7D455)",
@@ -261,6 +261,7 @@ hl.config({
 
         follow_mouse = 1,
         off_window_axis_events = 2,
+        sensitivity = 0.5,
 
         touchpad = {
             natural_scroll = true,

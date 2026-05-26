@@ -6,6 +6,9 @@ hl.window_rule({match = {class = "^()$", title = "^()$" },                   no_
 -- Disable blur for every window
 hl.window_rule({match = {class = ".*" }, no_blur = true })
 
+-- Enable blur for kitty
+hl.window_rule({match = {class = "kitty" }, no_blur = false })
+
 -- Floating
 hl.window_rule({match = {title = "^(Open File)(.*)$" },                      center = true})
 hl.window_rule({match = {title = "^(Open File)(.*)$" },                      float = true})
